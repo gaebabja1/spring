@@ -14,10 +14,11 @@
 </head>
 <body>
 
-	<h2>v2</h2>
+	<h2>전체 게시물 개수 : ${totalCount}</h2>
 
 	<c:forEach items="${list}" var="article">
 		<section>번호 : ${article.id}, 제목 : ${article.title}</section>
 		<hr>
 	</c:forEach>
+	<a href="./add">게시물 추가</a>
 </body>

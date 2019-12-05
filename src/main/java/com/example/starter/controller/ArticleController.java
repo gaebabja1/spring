@@ -25,12 +25,15 @@ public class ArticleController {
 	ArticleService articleService;
 	
 	@RequestMapping("/article/list")
-	public String showList(Model aModel)
+	public String showList(Model model)
 	{
 		List<Article> list = articleService.getList();
+		//게시글 총수
+		int totalCount = articleService.getTotalCount();
 		
 		Log.info("list:"+list);
-		aModel.addAttribute("list", list);
+		model.addAttribute("list", list);
+		model.addAttribute("totalCount", totalCount);
 		return "article/list";
 	}
 	
@@ -46,8 +49,27 @@ public class ArticleController {
 	public String doAdd(@RequestParam Map<String, Object> param){
 		
 		long newId = articleService.add(param);
+        //상세페이지로 이동되도록처리
+		String msg = newId + "번 게시물이 추가되었습니다.";
 
-		return newId + "번 게시물이 추가되었습니다.";
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("alert('"  + msg + "');");
+		sb.append("location.replace('./detail?id=" + newId + "');");
+
+		sb.insert(0, "<script>");
+		sb.append("</script>");
+
+		return sb.toString();
+	}
+	
+	@RequestMapping("/article/detail")
+	public String showDetail(Model model, long id) {
+		Article article = articleService.getOne(id);
+
+		model.addAttribute("article", article);
+
+		return "article/detail";
 	}
 	
 		
