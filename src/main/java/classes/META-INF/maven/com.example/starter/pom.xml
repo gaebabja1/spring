@@ -120,7 +120,11 @@
 			</plugin>
 		</plugins>
 		
+      		<!-- src/main/java 폴더의 xml파일들을 빌드에 포함 -->
+      		<directory>src/main/java</directory>
       	
+ 		 		<include>/Article_Dao.xml</include>
+      		
    		 
 	</build>
 
