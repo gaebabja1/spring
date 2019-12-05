@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>커뮤니티 사이트 - 게시물 리스트</title>
+<title>커뮤니티 사이트 - 게시물 작성</title>
 </head>
 <body>
 
