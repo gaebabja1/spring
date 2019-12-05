@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @Controller
-@Slf4j //log를 보기위해서
+@Slf4j //log
 public class ArticleController {
 	
 	@Autowired
